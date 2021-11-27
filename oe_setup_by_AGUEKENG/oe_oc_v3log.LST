@@ -1,0 +1,2405 @@
+DROP USER oe CASCADE
+          *
+ERROR at line 1:
+ORA-01918: user 'OE' does not exist 
+
+
+old   1: CREATE USER oe IDENTIFIED BY &pass
+new   1: CREATE USER oe IDENTIFIED BY hr
+CREATE USER oe IDENTIFIED BY hr
+            *
+ERROR at line 1:
+ORA-65096: invalid common user or role name 
+
+
+old   1: ALTER USER oe DEFAULT TABLESPACE &tbs QUOTA UNLIMITED ON &tbs
+new   1: ALTER USER oe DEFAULT TABLESPACE users QUOTA UNLIMITED ON users
+ALTER USER oe DEFAULT TABLESPACE users QUOTA UNLIMITED ON users
+           *
+ERROR at line 1:
+ORA-01918: user 'OE' does not exist 
+
+
+old   1: ALTER USER oe TEMPORARY TABLESPACE &ttbs
+new   1: ALTER USER oe TEMPORARY TABLESPACE temps
+ALTER USER oe TEMPORARY TABLESPACE temps
+           *
+ERROR at line 1:
+ORA-01918: user 'OE' does not exist 
+
+
+GRANT CREATE SESSION, CREATE SYNONYM, CREATE VIEW TO oe
+                                                     *
+ERROR at line 1:
+ORA-01917: user or role 'OE' does not exist 
+
+
+GRANT CREATE DATABASE LINK, ALTER SESSION TO oe
+                                             *
+ERROR at line 1:
+ORA-01917: user or role 'OE' does not exist 
+
+
+GRANT RESOURCE , UNLIMITED TABLESPACE TO oe
+                                         *
+ERROR at line 1:
+ORA-01917: user or role 'OE' does not exist 
+
+
+GRANT CREATE MATERIALIZED VIEW  TO oe
+                                   *
+ERROR at line 1:
+ORA-01917: user or role 'OE' does not exist 
+
+
+GRANT QUERY REWRITE             TO oe
+                                   *
+ERROR at line 1:
+ORA-01917: user or role 'OE' does not exist 
+
+
+SP2-0306: Invalid option.
+Usage: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM|SYSBACKUP|SYSDG|SYSKM|SYSRAC}] [edition=value]]
+where <logon> ::= <username>[/<password>][@<connect_identifier>]
+      <proxy> ::= <proxyuser>[<username>][/<password>][@<connect_identifier>]
+GRANT execute ON sys.dbms_stats TO oe
+                                   *
+ERROR at line 1:
+ORA-01917: user or role 'OE' does not exist 
+
+
+Connected.
+GRANT REFERENCES, SELECT ON employees TO oe
+                            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+GRANT REFERENCES, SELECT ON countries TO oe
+                            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+GRANT REFERENCES, SELECT ON locations TO oe
+                            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+GRANT SELECT ON jobs TO oe
+                *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+GRANT SELECT ON job_history TO oe
+                *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+GRANT SELECT ON departments TO oe
+                *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+Connected.
+
+Session altered.
+
+
+Session altered.
+
+
+specify Sample Schema version as parameter 1:
+
+specify password for OE as parameter 2:
+
+PROMPT password for SYS as parameter 3:
+
+specify connect string as parameter 4:
+
+CREATE TYPE cust_address_typ
+            *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE TYPE phone_list_typ
+            *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/ccus_v3.sql"
+   ON customers (customer_id) 
+      *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+ALTER TABLE customers
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/cwhs_v3.sql"
+ON warehouses (warehouse_id) 
+   *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+ALTER TABLE warehouses
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+CREATE TABLE order_items
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE UNIQUE INDEX order_items_pk
+                    *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE UNIQUE INDEX order_items_uk
+                    *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+ADD ( CONSTRAINT order_items_pk PRIMARY KEY (order_id, line_item_id)
+                                *
+ERROR at line 2:
+ORA-02260: table can have only one primary key 
+
+
+
+Trigger created.
+
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/cord_v3.sql"
+ON orders (order_id) 
+   *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+ALTER TABLE orders
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+CREATE TABLE inventories
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE INDEX inventory_ix
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+
+Table altered.
+
+CREATE TABLE product_information
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+ADD ( CONSTRAINT product_information_pk PRIMARY KEY (product_id)
+                                        *
+ERROR at line 2:
+ORA-02260: table can have only one primary key 
+
+
+CREATE TABLE product_descriptions
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE UNIQUE INDEX prd_desc_pk
+                    *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+	PRIMARY KEY (product_id, language_id))
+	*
+ERROR at line 3:
+ORA-02260: table can have only one primary key 
+
+
+CREATE TABLE promotions (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+ADD CONSTRAINT promo_id_pk PRIMARY KEY (promo_id)
+                           *
+ERROR at line 2:
+ORA-02260: table can have only one primary key 
+
+
+ALTER TABLE orders
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+ALTER TABLE orders
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+ALTER TABLE warehouses
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+ALTER TABLE customers
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+      REFERENCES warehouses (warehouse_id)
+                 *
+ERROR at line 4:
+ORA-00942: table or view does not exist 
+
+
+      FOREIGN KEY (product_id)
+      *
+ERROR at line 3:
+ORA-02275: such a referential constraint already exists in the table 
+
+
+      REFERENCES orders(order_id)
+                 *
+ERROR at line 4:
+ORA-00942: table or view does not exist 
+
+
+      FOREIGN KEY (product_id)
+      *
+ERROR at line 3:
+ORA-02275: such a referential constraint already exists in the table 
+
+
+      FOREIGN KEY (product_id)
+      *
+ERROR at line 3:
+ORA-02275: such a referential constraint already exists in the table 
+
+
+CREATE SYNONYM countries FOR hr.countries
+               *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE SYNONYM locations FOR hr.locations
+               *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE SYNONYM departments FOR hr.departments
+               *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE SYNONYM jobs FOR hr.jobs
+               *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE SYNONYM employees FOR hr.employees
+               *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE SYNONYM job_history FOR hr.job_history
+               *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+CREATE SEQUENCE orders_seq
+                *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/coe_xml.sql"
+
+Commit complete.
+
+
+specify Sample Schema version as parameter 1:
+
+specify location for data and control files as parameter 2:
+
+specify location for log files as parameter 3:
+
+specify password for oe as parameter 4:
+
+Setting FEEDBACK OFF for inserts
+
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/oe_p_pi.sql"
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/oe_p_pd.sql"
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/pwhs_v3.sql"
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/pcus_v3.sql"
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/pord_v3.sql"
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/oe_p_itm.sql"
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/oe_p_inv.sql"
+Setting FEEDBACK ON
+
+INSERT INTO promotions (promo_id, promo_name)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (OE.PROMO_ID_PK) violated 
+
+
+INSERT INTO promotions (promo_id, promo_name)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (OE.PROMO_ID_PK) violated 
+
+
+
+Commit complete.
+
+ALTER TABLE customers
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Session altered.
+
+
+Session altered.
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+UPDATE customers c
+       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Commit complete.
+
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/oe_views.sql"
+FROM		customers c, countries cr
+    		*
+ERROR at line 7:
+ORA-00942: table or view does not exist 
+
+
+
+Function created.
+
+  customers c
+  *
+ERROR at line 30:
+ORA-00942: table or view does not exist 
+
+
+from orders
+     *
+ERROR at line 11:
+ORA-00942: table or view does not exist 
+
+
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/cmnt_v3.sql"
+SP2-0310: unable to open file "C:/oe_setup_by_AGUEKENG/cidx_v3.sql"
+
+PL/SQL procedure successfully completed.
+
+SP2-0306: Invalid option.
+Usage: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM|SYSBACKUP|SYSDG|SYSKM|SYSRAC}] [edition=value]]
+where <logon> ::= <username>[/<password>][@<connect_identifier>]
+      <proxy> ::= <proxyuser>[<username>][/<password>][@<connect_identifier>]
+CREATE OR REPLACE PUBLIC SYNONYM COE_CONFIGURATION FOR COE_CONFIGURATION
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+CREATE OR REPLACE PUBLIC SYNONYM COE_NAMESPACES FOR COE_NAMESPACES
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+CREATE OR REPLACE PUBLIC SYNONYM COE_DOM_HELPER FOR COE_DOM_HELPER
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+CREATE OR REPLACE PUBLIC SYNONYM COE_UTILITIES FOR COE_UTILITIES
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+CREATE OR REPLACE PUBLIC SYNONYM COE_TOOLS FOR COE_TOOLS
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+"----------------------------------BY PHARAON-------------------------------"
+"BY PHARAON"
+"BY PHARAON"
+"----------------------------------BY PHARAON-------------------------------"
+"BY PHARAON"
+
+TABLE_NAME                                                                                                                       TABLESPACE_NAME                CLUSTER_NAME                                                                                                                     IOT_NAME                                                                                                                         STATUS     PCT_FREE   PCT_USED  INI_TRANS  MAX_TRANS INITIAL_EXTENT NEXT_EXTENT MIN_EXTENTS MAX_EXTENTS PCT_INCREASE  FREELISTS FREELIST_GROUPS LOG B   NUM_ROWS     BLOCKS EMPTY_BLOCKS  AVG_SPACE  CHAIN_CNT AVG_ROW_LEN AVG_SPACE_FREELIST_BLOCKS NUM_FREELIST_BLOCKS DEGREE                                   INSTANCES                                CACHE                TABLE_LO SAMPLE_SIZE LAST_ANAL PAR IOT_TYPE     T S NES BUFFER_ FLASH_C CELL_FL ROW_MOVE GLO USE DURATION        SKIP_COR MON CLUSTER_OWNER                                                                                                                    DEPENDEN COMPRESS COMPRESS_FOR                   DRO REA SEG RESULT_ CLU ACTIVITY_TRACKING       DML_TIMESTAMP             HAS CON INMEMORY INMEMORY INMEMORY_DISTRI INMEMORY_COMPRESS INMEMORY_DUPL DEFAULT_COLLATION                                                                                    D S E E EXT HYB CELLMEMORY               CON CON EXT EXT INMEMORY_SER INMEMORY_SERVICE_NAME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    CON MEMOPTIM MEMOPTIM HAS ADM DAT LOGICAL_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+-------------------------------------------------------------------------------------------------------------------------------- ------------------------------ -------------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------------------------------------------------------------------------- -------- ---------- ---------- ---------- ---------- -------------- ----------- ----------- ----------- ------------ ---------- --------------- --- - ---------- ---------- ------------ ---------- ---------- ----------- ------------------------- ------------------- ---------------------------------------- ---------------------------------------- -------------------- -------- ----------- --------- --- ------------ - - --- ------- ------- ------- -------- --- --- --------------- -------- --- -------------------------------------------------------------------------------------------------------------------------------- -------- -------- ------------------------------ --- --- --- ------- --- ----------------------- ------------------------- --- --- -------- -------- --------------- ----------------- ------------- ---------------------------------------------------------------------------------------------------- - - - - --- --- ------------------------ --- --- --- --- ------------ ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --- -------- -------- --- --- --- --------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+ORDER_ITEMS                                                                                                                      USERS                                                                                                                                                                                                                                                                                            VALID            10                     1        255                                                                                            YES N          0          0            0          0          0           0                         0                   0          1                                        1                                   N                ENABLED            0 19-NOV-21 NO               N N NO  DEFAULT DEFAULT DEFAULT DISABLED YES NO                  DISABLED YES                                                                                                                                  DISABLED DISABLED                                NO  NO  NO  DEFAULT NO                                                    NO  NO  DISABLED                                                          USING_NLS_COMP                                                                                       N N N N NO  NO                           NO  NO  NO  NO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO  DISABLED DISABLED NO  NO  NO  ENABLED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+INVENTORIES                                                                                                                      USERS                                                                                                                                                                                                                                                                                            VALID            10                     1        255                                                                                            YES N          0          0            0          0          0           0                         0                   0          1                                        1                                   N                ENABLED            0 19-NOV-21 NO               N N NO  DEFAULT DEFAULT DEFAULT DISABLED YES NO                  DISABLED YES                                                                                                                                  DISABLED DISABLED                                NO  NO  NO  DEFAULT NO                                                    NO  NO  DISABLED                                                          USING_NLS_COMP                                                                                       N N N N NO  NO                           NO  NO  NO  NO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO  DISABLED DISABLED NO  NO  NO  ENABLED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+PRODUCT_INFORMATION                                                                                                              USERS                                                                                                                                                                                                                                                                                            VALID            10                     1        255                                                                                            YES N          0          0            0          0          0           0                         0                   0          1                                        1                                   N                ENABLED            0 19-NOV-21 NO               N N NO  DEFAULT DEFAULT DEFAULT DISABLED YES NO                  DISABLED YES                                                                                                                                  DISABLED DISABLED                                NO  NO  NO  DEFAULT NO                                                    NO  NO  DISABLED                                                          USING_NLS_COMP                                                                                       N N N N NO  NO                           NO  NO  NO  NO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO  DISABLED DISABLED NO  NO  NO  ENABLED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+PRODUCT_DESCRIPTIONS                                                                                                             USERS                                                                                                                                                                                                                                                                                            VALID            10                     1        255                                                                                            YES N          0          0            0          0          0           0                         0                   0          1                                        1                                   N                ENABLED            0 19-NOV-21 NO               N N NO  DEFAULT DEFAULT DEFAULT DISABLED YES NO                  DISABLED YES                                                                                                                                  DISABLED DISABLED                                NO  NO  NO  DEFAULT NO                                                    NO  NO  DISABLED                                                          USING_NLS_COMP                                                                                       N N N N NO  NO                           NO  NO  NO  NO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO  DISABLED DISABLED NO  NO  NO  ENABLED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+PRODUCT_REF_LIST_NESTEDTAB                                                                                                       USERS                                                                                                                                                                                                                                                                                            VALID            10                     1        255                                                                                            YES N          0          0            0          0          0           0                         0                   0          1                                        1                                   N                ENABLED            0 19-NOV-21 NO               N N YES DEFAULT DEFAULT DEFAULT DISABLED YES NO                  DISABLED YES                                                                                                                                  DISABLED DISABLED                                NO  NO  NO  DEFAULT NO                                                    NO  NO  DISABLED                                                          USING_NLS_COMP                                                                                       N N N N NO  NO                           NO  NO  NO  NO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO  DISABLED DISABLED NO  NO  NO  ENABLED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+PROMOTIONS                                                                                                                       USERS                                                                                                                                                                                                                                                                                            VALID            10                     1        255          65536     1048576           1  2147483645                                         YES N          2          5            0          0          0          19                         0                   0          1                                        1                                   N                ENABLED            2 19-NOV-21 NO               N N NO  DEFAULT DEFAULT DEFAULT DISABLED YES NO                  DISABLED YES                                                                                                                                  DISABLED DISABLED                                NO  NO  YES DEFAULT NO                                                    NO  NO  DISABLED                                                          USING_NLS_COMP                                                                                       N N N N NO  NO                           NO  NO  NO  NO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO  DISABLED DISABLED NO  NO  NO  ENABLED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+SUBCATEGORY_REF_LIST_NESTEDTAB                                                                                                   USERS                                                                                                                                                                                                                                                                                            VALID            10                     1        255          65536     1048576           1  2147483645                                         YES N          3          5            0          0          0          17                         0                   0          1                                        1                                   N                ENABLED            3 19-NOV-21 NO               N N YES DEFAULT DEFAULT DEFAULT DISABLED YES NO                  DISABLED YES                                                                                                                                  DISABLED DISABLED                                NO  NO  YES DEFAULT NO                                                    NO  NO  DISABLED                                                          USING_NLS_COMP                                                                                       N N N N NO  NO                           NO  NO  NO  NO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        NO  DISABLED DISABLED NO  NO  NO  ENABLED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+7 rows selected.
+
+USER is "OE"
+"BY PHARAON"
+"BY PHARAON"
+"----------------------------------BY PHARAON-------------------------------"
